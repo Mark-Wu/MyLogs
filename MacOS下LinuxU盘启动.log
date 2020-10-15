@@ -1,1 +1,31 @@
+制作启动盘需要先确定U盘的设备名，建议先给U盘起个名字，然后查找U盘的设备路径。如下为/dev/disk5:
+diskutil list
+# /dev/disk5
+# blabla... U盘名字
 
+写入前，先卸载U盘
+diskutil unmountDisk /dev/disk5
+在制作之前，先介绍一个工具---dd。dd的基本用法如下：
+
+# 将file1复制到file2中
+dd if=file1 of=file2
+if和of后面既可以是文件也可以是某个设备，dd是一种底层磁盘工具，非常适合制作启动盘，同时它也可以做一些有趣的事情，比如：
+# 备份磁盘到文件
+dd if=/dev/sda of=image.iso
+# 从文件恢复到磁盘
+dd if=image.iso of=/dev/sda
+# 销毁某个设备的数据
+dd if=/dev/urandom of=/dev/sda
+# 修复磁盘的一些IO错误
+dd if=/dev/sda of=/dev/sda
+
+下面我们正式制作启动盘
+
+sudo dd if=1575868135818_ubuntu18.04-3.18.iso of=/dev/disk5 bs=1m
+
+# 复制结束后，dd命令会打印出有多少输入块，有多少输出块，速度如何
+# 出现以下提示表示成功
+# 1934+1 records in
+# 1934+1 records out
+# 2028060672 bytes transferred in 641.515462 secs (3161359 bytes/sec)
+完成后，就可以拿来装系统了。
