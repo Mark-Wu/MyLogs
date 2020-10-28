@@ -1,0 +1,15 @@
+// How to bring back minimize and maximize buttons in Gnome 3
+
+// 1.The command line way
+// add the values at the left side of : for buttons on the left side "close,minimize,maximize:"
+
+$ gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"
+
+// add the values at the right side of : for buttons on the right side ":minimize,maximize,close"
+
+$ gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
+
+
+// 2.The GUI way
+
+// Start the gnome-tweak-tool, open the Windows tab and switch the buttons for Titlebar Buttons in the right panel
