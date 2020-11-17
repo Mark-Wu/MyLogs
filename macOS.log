@@ -1,2 +1,4 @@
-1. make: error: unable to find utility "*", not a developer tool or in PATH
-   fix: sudo xcode-select -s /Library/Developer/CommandLineTools
+1. make: error: unable to find utility "*", not a developer tool or in PATH  
+   a.removing the old tools ($ sudo rm -rf /Library/Developer/CommandLineTools)
+   b.install xcode command line tools again ($ xcode-select --install).
+   c.sudo xcode-select -s /Library/Developer/CommandLineTools
