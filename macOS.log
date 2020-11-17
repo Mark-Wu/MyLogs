@@ -1,0 +1,2 @@
+1. make: error: unable to find utility "*", not a developer tool or in PATH
+   fix: sudo xcode-select -s /Library/Developer/CommandLineTools
